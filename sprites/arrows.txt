@@ -1,0 +1,104 @@
+For C programmers:
+
+#define FRAMES (1)
+#define HEIGHT (16)
+#define GAP    (0)
+const unsigned char P0COLOURS[FRAMES] =
+{
+  0x04
+};
+const unsigned char P1COLOURS[FRAMES] =
+{
+  0x38
+};
+const unsigned char P0DATA[FRAMES][HEIGHT] =
+{
+  {
+    0xe7, 0xe7, 0xe7, 0x81, 0xa1, 0x40, 0x95, 0x28, 
+    0x08, 0x10, 0x44, 0x08, 0xa2, 0x14, 0x42, 0x80
+  }
+};
+const unsigned char P1DATA[FRAMES][HEIGHT] =
+{
+  {
+    0x00, 0xe7, 0xc3, 0xc3, 0xc3, 0xa5, 0x20, 0x10,
+    0x10, 0x08, 0x0a, 0x24, 0x05, 0x42, 0x89, 0x01
+  }
+};
+
+For BASIC programmers:
+
+10000 REM **** FRAMES ****
+10010 DATA 1
+10020 REM **** HEIGHT ****
+10030 DATA 16
+10040 REM **** GAP ****
+10050 DATA 0
+10060 REM **** P0 COLOURS ****
+10070 DATA 4
+10080 REM **** P1 COLOURS ****
+10090 DATA 56
+10100 REM **** P0 DATA ****
+10110 REM **** FRAME 1
+10120 DATA 231,231,231,129,161,64,149,40
+10130 DATA 8,16,68,8,162,20,66,128
+10140 REM **** P1 DATA ****
+10150 REM **** FRAME 1
+10160 DATA 0,231,195,195,195,165,32,16
+10170 DATA 16,8,10,36,5,66,137,1
+
+For BASIC programmers (2):
+
+10000 REM **** FRAMES ****
+10010 DATA 1
+10020 REM **** HEIGHT ****
+10030 DATA 16
+10040 REM **** GAP ****
+10050 DATA 0
+10060 REM **** FRAME 1 COLOURS (P0, P1) ****
+10070 DATA 4,56
+10080 REM **** FRAME 1 ****
+10090 REM **** P0 DATA
+10100 DATA 231,231,231,129,161,64,149,40
+10110 DATA 8,16,68,8,162,20,66,128
+10120 REM **** P1 DATA
+10130 DATA 0,231,195,195,195,165,32,16
+10140 DATA 16,8,10,36,5,66,137,1
+
+For Assembler programmers:
+
+FRAMES:
+ .BYTE 1
+HEIGHT:
+ .BYTE 16
+GAP:
+ .BYTE 0
+P0COLOURS:
+ .BYTE $04
+P1COLOURS:
+ .BYTE $38
+P0DATA:
+; FRAME 1
+ .BYTE $e7,$e7,$e7,$81,$a1,$40,$95,$28
+ .BYTE $08,$10,$44,$08,$a2,$14,$42,$80
+P1DATA:
+; FRAME 1
+ .BYTE $00,$e7,$c3,$c3,$c3,$a5,$20,$10
+ .BYTE $10,$08,$0a,$24,$05,$42,$89,$01
+
+For FASTBASIC programmers:
+
+' frames = 1
+' height = 16
+' gap    = 0
+
+data Colour0() byte = 4
+
+data Colour1() byte = 56
+
+data Player0() byte = 231,231,231,129,161,64,149,40,
+data           byte = 8,16,68,8,162,20,66,128
+
+data Player1() byte = 0,231,195,195,195,165,32,16,
+data           byte = 16,8,10,36,5,66,137,1
+

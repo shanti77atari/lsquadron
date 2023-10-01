@@ -1,0 +1,29 @@
+mads 2.0.7
+Source: o.asm
+     1 						org $600
+     2 						
+     3 = 00CB			pom		equ 203
+     4
+     5 = 00E0			liczba	equ $00e0		
+     6 						
+     7 FFFF> 0600-061D> A9 E0	run		lda #<liczba
+     8 0602 49 FF				eor #255
+     9 0604 85 CB				sta pom
+    10 0606 A9 00				lda #>liczba
+    11 0608 49 FF				eor #255
+    12 060A 85 CC				sta pom+1
+    13 						
+    14 060C 18					clc
+    15 060D A5 CB				lda pom
+    16 060F 69 01				adc #1
+    17 0611 85 CB				sta pom
+    18 0613 A5 CC				lda pom+1
+    19 0615 69 00				adc #0
+    20 0617 85 CC				sta pom+1
+    21 						
+    22 0619 A6 CB				ldx pom
+    23 061B A5 CC				lda pom+1
+    24 061D 02					dta 2
+    25 						
+    26 						
+    27 02E0-02E1> 00 06				run run
